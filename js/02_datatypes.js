@@ -41,4 +41,30 @@ types of data types in js
     call by reference - when a variable is assigned a non-primitive data type, the value is stored as a reference to the memory location where the value is stored. When the variable is copied to another variable, both variables point to the same memory location. Changes made to one variable affect the other.
 
 
+    +++++++++++++++++++++++++++++
+    memory allocation in js
+    1. Stack memory - used for storing primitive data types and function calls. The stack is a last-in, first-out (LIFO) data structure, meaning that the last item added to the stack is the first one to be removed. When a function is called, a new stack frame is created to store the function's local variables and parameters. When the function returns, the stack frame is removed from the stack.
+    
+    2. Heap memory - used for storing non-primitive data types such as objects and arrays. The heap is a region of memory that is managed by the JavaScript engine's garbage collector. When an object or array is created, it is allocated in the heap memory. When there are no more references to an object or array, it becomes eligible for garbage collection and its memory can be reclaimed.
+
+
+
 */
+
+// memory examples
+
+let num1 = 10; // primitive data type, stored in stack memory
+let num2 = num1; // copy of num1, stored in stack memory
+
+num2 = 20; // change value of num2, does not affect num1
+
+console.log(num1); // 10
+console.log(num2); // 20
+
+let obj1 = { name: "John", age: 30 }; // non-primitive data type, stored in heap memory
+let obj2 = obj1; // reference to obj1, stored in stack memory
+
+obj2.age = 40; // change value of obj2, affects obj1
+
+console.log(obj1.age); // 40
+console.log(obj2.age); // 40
